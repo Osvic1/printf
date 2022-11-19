@@ -9,7 +9,8 @@
 int (*collect_func(const char *str, int id))(va_list)
 {
 	prt func[] = {
-		{"c", print_char}, {"s" , print_str}, {"%" , print_percent}, {NULL, NULL}
+
+{"c", print_char}, {"s", print_str}, {"%", print_percentage}, {NULL, NULL}
 
 
 	};
@@ -20,13 +21,13 @@ if (str)
 
 	{
 
-while (prt[v].func != NULL)
+while (func[v].func != NULL)
 
 		{
 
-if (prt[v].c[j] == str[id])
+if (func[v].c[j] == str[id])
 
-return (prt[v].func);
+return (func[v].func);
 
 v++;
 		}
