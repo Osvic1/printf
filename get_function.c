@@ -9,14 +9,9 @@
 int (*collect_func(const char *str, int id))(va_list)
 {
 	prt func[] = {
-		{"c", print_char}
-
-{"s" , print_str};
-
-{"%" , print_percent};
+		{"c", print_char}, {"s" , print_str}, {"%" , print_percent}, {NULL, NULL}
 
 
-		{NULL, NULL}
 	};
 
 int v = 0, j = 0;
