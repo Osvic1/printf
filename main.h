@@ -5,6 +5,20 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+/**
+ *struct print - proto struct 
+ *@c: test parameter
+ *@func: function to  print data with corresponding specifier
+ */
+typedef struct print
+{
+	/* for all formats*/
+	char *c;
+	int (*func)(va_list);
+} prt;
+
+int (*get_func(const char *format, ...);
+/* prototypes for specifier functions */
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list args);
