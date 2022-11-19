@@ -17,7 +17,7 @@ typedef struct print
 	int (*func)(va_list);
 } prt;
 
-int (*get_func(const char *format, ...);
+int (*collec_func(const char *, int))(va_list);
 /* prototypes for specifier functions */
 int _printf(const char *format, ...);
 int _putchar(char c);
