@@ -11,7 +11,7 @@ int (*collect_func(const char *str, int id))(va_list)
 	prt func[] = {
 		{"c", print_char}, {"s", print_str},
 		{"%", print_percentage},{"d", print_num},
-	        {"i", print_num} {NULL, NULL}
+	        {"i", print_num}, {NULL, NULL}
 	};
 
 	int v = 0, j = 0;
