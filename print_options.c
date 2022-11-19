@@ -10,9 +10,7 @@ int print_char(va_list args)
 
 	c = va_arg(args, int);
 	_putchar(c);
-/**
- * return the number of characters
- */
+/*return the number of characters */
 	return (1);
 }
 
@@ -44,7 +42,7 @@ int print_str(va_list args)
 /**
  *print_percentage - prints % as a string character
  *Return: str
- *
+ *@args: parameter
  */
 int print_percentage(va_list args)
 {

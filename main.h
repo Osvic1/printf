@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 /**
- *struct print - proto struct 
+ *struct print - proto struct
  *@c: test parameter
  *@func: function to  print data with corresponding specifier
  */
@@ -18,7 +18,7 @@ typedef struct print
 	int (*func)(va_list);
 } prt;
 
-int (*collec_func(const char *, int))(va_list);
+int (*collect_func(const char *, int))(va_list);
 /* prototypes for specifier functions */
 int _printf(const char *format, ...);
 int _putchar(char c);
