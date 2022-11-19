@@ -1,10 +1,18 @@
+/*
+ * File: _printf.c
+ * Auth: Omaku Festus Friday
+ *       Timothy Victor
+ */
+
 #include "main.h"
+
 /**
  *_printf - replicates the standard function of printf
  *@format: parameter containing char and format specifiers to print out
  *Return: all characters passed in right format
  *
  */
+
 int _printf(const char *format, ...)
 {
 	int i, j;
