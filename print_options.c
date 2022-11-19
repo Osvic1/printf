@@ -57,4 +57,3 @@ int print_percentage(va_list args)
 	}
 	return (*str);
 }
-
