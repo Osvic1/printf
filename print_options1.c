@@ -2,10 +2,10 @@
 /**
  *print_num - prints signed decimal integers
  *@args: supplied arguments
- *
+ *@va_list: fhbd
  *Return: 0
  */
-int print_num(va_list, args)
+int print_num(va_list args)
 {
 	int array[100];
 	int i, j, k, count, num;
@@ -29,12 +29,12 @@ int print_num(va_list, args)
 	while (num != 0)
 	{
 		k = num % 10;
-		arr[i] = k;
+		array[i] = k;
 		i++;
 		num /= 10;
 	}
 
 	for (j = i - 1; j > -1; j--, count++)
-		_putchar(arr[j] + '0');
+		_putchar(array[j] + '0');
 	return (count);
 }
