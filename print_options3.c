@@ -11,7 +11,7 @@ int print_S(va_list args)
 {
 
 int v, n = 0;
-char *str
+char *str;
 char null[] = "(null)";
 
 str = va_arg(args, char *);
