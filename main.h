@@ -29,5 +29,8 @@ int print_str(va_list);
 int print_percentage(va_list);
 int print_num(va_list);
 int print_binary(va_list args);
+int print_octadex(va_list);
+int print_unsigned_intg(va_list);
+
 
 #endif
