@@ -21,22 +21,24 @@ int print_char(va_list args)
  */
 int print_str(va_list args)
 {
-	int i, j;
+	int v;
 	char *str;
 
 	str = va_arg(args, char *);
 	if (str == NULL)
-	{
-		str = "(null)";
+
+{
+		for (v = 0; null[i] != '\0'; v++)
+			_putchar(null[v]);
+		return (6);
 	}
-	i = 0;
-	while (str[i] != '\0')
+
+	for (v = 0; str[i] != '\0'; v++)
 	{
-		_putchar(str[i]);
-		i++;
-		j++;
+		_putchar(str[v]);
 	}
-	return (j);
+	return (v);
+
 }
 
 
