@@ -13,7 +13,6 @@ int (*collect_func(const char *str, int id))(va_list)
 		{"%", print_percentage},{"d", print_num},
 	        {"i", print_num}, {NULL, NULL}
 	};
-
 	int v = 0, j = 0;
 
 	if (str)
