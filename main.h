@@ -22,8 +22,8 @@ int (*collect_func(const char *, int))(va_list);
 /* prototypes for specifier functions */
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_char(va_list args);
-int print_str(va_list args);
-int print_percentage(va_list args);
-int print_num(va_list args);
+int print_char(va_list);
+int print_str(va_list);
+int print_percentage(va_list);
+int print_num(va_list);
 #endif
