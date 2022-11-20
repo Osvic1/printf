@@ -16,7 +16,8 @@ int (*collect_func(const char *str, int id))(va_list)
 		{"c", print_char}, {"s", print_str}, {"b", print_binary},
 		{"%", print_percentage}, {"d", print_num},
 		{"i", print_num}, {"o", print_octadex},
-{"u", print_unsigned_intg}, {NULL, NULL}
+		{"x", print_hex}, {"X", print_hexx},
+		{"u", print_unsigned_intg}, {NULL, NULL}
 	};
 	int v = 0, j = 0;
 

@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 /**
  *struct print - proto struct
@@ -31,6 +32,7 @@ int print_num(va_list);
 int print_binary(va_list args);
 int print_octadex(va_list);
 int print_unsigned_intg(va_list);
-
+int print_hex(va_list args);
+int print_hexx(va_list args);
 
 #endif
