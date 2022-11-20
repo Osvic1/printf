@@ -2,7 +2,6 @@
 /**
  *print_num - prints signed decimal integers
  *@args: supplied arguments
- *@va_list: fhbd
  *Return: 0
  */
 int print_num(va_list args)

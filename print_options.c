@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
  *print_char - prints characters
  *@args: supplied arguments
  *Return: character
  */
+
 int print_char(va_list args)
 {
 	char c;
