@@ -34,5 +34,7 @@ int print_octadex(va_list);
 int print_unsigned_intg(va_list);
 int print_hex(va_list args);
 int print_hexx(va_list args);
+int print_S(va_list);
+
 
 #endif
