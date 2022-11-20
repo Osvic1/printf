@@ -23,17 +23,18 @@ int print_str(va_list args)
 {
 	int v;
 	char *str;
+char null[] = "(null)";
 
 	str = va_arg(args, char *);
 	if (str == NULL)
 
 {
-		for (v = 0; null[i] != '\0'; v++)
+		for (v = 0; null[v] != '\0'; v++)
 			_putchar(null[v]);
 		return (6);
 	}
 
-	for (v = 0; str[i] != '\0'; v++)
+	for (v = 0; str[v] != '\0'; v++)
 	{
 		_putchar(str[v]);
 	}
