@@ -21,37 +21,37 @@ int print_char(va_list args)
  */
 int print_str(va_list args)
 {
-	int i, j;
+	int v;
 	char *str;
+char null[] = "(null)";
 
 	str = va_arg(args, char *);
 	if (str == NULL)
-	{
-		str = "(null)";
+
+{
+		for (v = 0; null[v] != '\0'; v++)
+			_putchar(null[v]);
+		return (6);
 	}
-	i = 0;
-	while (str[i] != '\0')
+
+	for (v = 0; str[v] != '\0'; v++)
 	{
-		_putchar(str[i]);
-		i++;
-		j++;
+		_putchar(str[v]);
 	}
-	return (j);
+	return (v);
+
 }
 
-/**
- *print_percentage - prints % as a string character
- *Return: str
- *@args: parameter
- */
-int print_percentage(va_list args)
-{
-	char *str;
 
-	str = "%";
-	if (va_arg(args, int) == *str)
-	{
-		return (*str);
-	}
-	return (*str);
+/**
+ * print_percentage - prints a % character
+ * @args: arguments (unused)
+ *
+ * Return: 1 if success
+ */
+int print_percentage(va_list __attribute__((unused)) args)
+{
+	_putchar('%');
+
+	return (1);
 }
