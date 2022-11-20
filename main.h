@@ -24,16 +24,9 @@ int (*collect_func(const char *, int))(va_list);
 /* prototypes for specifier functions */
 int _printf(const char *format, ...);
 int _putchar(char c);
-<<<<<<< HEAD
 int print_char(va_list);
 int print_str(va_list);
 int print_percentage(va_list);
 int print_num(va_list);
 
-=======
-int print_char(va_list);
-int print_str(va_list);
-int print_percentage(va_list);
-int print_num(va_list);
->>>>>>> 4d4aefd7177a293d193c3c9aa5221deac9dc3424
 #endif
