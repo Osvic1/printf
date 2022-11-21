@@ -6,6 +6,7 @@
  *
  * Return: count
  */
+
 int print_S(va_list args)
 {
 	int i, n = 0;

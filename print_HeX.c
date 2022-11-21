@@ -1,47 +1,51 @@
 #include "main.h"
-#include <stdarg.h>
+
 /**
-* print_HEX - jndsfj
-*@args: arguments
+* print_HEX - prints a hexadecimal number
+* @num: decimal to convert
+* @size: size of array
+* @type: indicates if we want lowercase letters or uppercase
 *
+* prints an hexadecimal number from an int by continously dividing it by 16
+* then storing it in an array, and putting the remainder as 0-9 or A-F
 * Return: nothing
 */
-int print_HEX(va_list args)
+int print_HEX(long int num, unsigned int size, unsigned int type)
 {
-	int i;
-	int len;
-	char *p;
-	char n[] = "(null)";
-	unsigned int h;
+	unsigned int p, i;
+	int *hex;
+	int r;
+	char c;
 
-	len = 0;
-	p = va_arg(args, char *);
-	if (p == NULL)
+	if (type == 0)
+		c = 'a';
+	else
+		c = 'A';
+
+	if (num < 0)
+		num = num * -1;
+
+	hex = malloc(sizeof(int) * size);
+	for (i = 0; i < size; i++)
+		hex[i] = 0;
+
+	for (p = 0; p < size && num != 0; p++)
 	{
-		for (i = 0; n[i] != '\0'; i++)
-			_putchar(n[i]);
-		return (6);
+		hex[p] = num % 16;
+		num /= 16;
 	}
-	for (i = 0; p[i] != '\0'; i++)
+
+	/* Prints the hex array */
+	for (r = p - 1; r >= 0; r--)
 	{
-		if (p[i] < 32 || p[i] >= 127)
-		{
-			_putchar('\\');
-			_putchar('x');
-			len = len + 2;
-			h = p[i];
-			if (h < 16)
-			{
-				_putchar ('0');
-				len++;
-			}
-			len += print_hext(h);
-		}
+		if (type != 0)
+			_putchar('0');
+
+		if (hex[r] < 10)
+			_putchar(hex[r] + '0');
 		else
-		{
-			_putchar(p[i]);
-			len++;
-		}
+			_putchar((hex[r] % 10) + c);
 	}
-	return (len);
+	free(hex);
+	return (p);
 }
