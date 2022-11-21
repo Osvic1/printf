@@ -22,6 +22,7 @@ typedef struct print
 } prt;
 
 int (*collect_func(const char *, int))(va_list);
+int collect_flags(const char *, int);
 /* prototypes for specifier functions */
 int _printf(const char *format, ...);
 int _putchar(char c);

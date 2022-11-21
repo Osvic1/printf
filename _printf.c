@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				j = j + p_func(lst);
-				i += collect_func(format, i + 1);
+				i += collect_flags(format, i + 1);
 			}
 		} else
 		{
