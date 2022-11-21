@@ -35,6 +35,7 @@ int print_unsigned_intg(va_list);
 int print_hex(va_list args);
 int print_hexx(va_list args);
 int print_S(va_list args);
+int print_address(va_list args);
 int print_HEX(long int, unsigned int, unsigned int);
 
 #endif
