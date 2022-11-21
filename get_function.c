@@ -17,7 +17,7 @@ int (*collect_func(const char *str, int id))(va_list)
 		{"%", print_percentage}, {"d", print_num},
 		{"i", print_num}, {"o", print_octadex},
 		{"x", print_hex}, {"X", print_hexx},
-		{"u", print_unsigned_intg}, {"S", print_S}, {NULL, NULL}
+		{"u", print_unsigned_intg}, {"S", print_HEX}, {NULL, NULL}
 	};
 	int v = 0, j = 0;
 
