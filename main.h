@@ -34,6 +34,7 @@ int print_octadex(va_list);
 int print_unsigned_intg(va_list);
 int print_hex(va_list args);
 int print_hexx(va_list args);
-char *string_to_base(unsigned long int num, int base, bool uppercase);
+int print_S(va_list);
+int print_HEX(long int, unsigned int, unsigned int);
 
 #endif

@@ -1,25 +1,38 @@
 #include "main.h"
+
 /**
- * string_to_base - creating a buffer
+ * print_S - also prints hex values of non-printable characters
+ * @args: arguments
  *
- * @num: number
- * @base: 2, 8, 10, 16 depending of the type
- * @uppercase: is hex to uppercase
- * Return: Always 0
+ * Return: count
  */
-char *string_to_base(unsigned long int num, int base, bool uppercase)
+int print_S(va_list args)
 {
-	static char *replace;
-	static char buffer[50];
-	char *ptr;
+	int i, n = 0;
+	char *str;
+	char null[] = "(null)";
 
-	replace = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
-	ptr = &buffer[49];
-	*ptr = '\0';
-	do {
-		*--ptr = replace[num % base];
-		num /= base;
-	} while (num != 0);
+	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		for (i = 0; null[i] != '\0'; i++)
+			_putchar(null[i]);
+		return (6);
+	}
 
-	return (ptr);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] < 32 || str[i] >= 127)
+		{
+			_putchar(92);
+			_putchar('x');
+			print_HEX((long int)str[i], 2, 1);
+			n += 3;
+		}
+		else
+		{
+			_putchar(str[i]);
+		}
+	}
+	return (i + n);
 }
