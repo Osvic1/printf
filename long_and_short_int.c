@@ -4,7 +4,7 @@
  *@args: arguments
  *Return: count
  */
-int print_long_unsigned_dec(va_list args)
+int print_long_unsigned_intg(va_list args)
 {
 	unsigned long int arr[100], i = 0, r, count = 0;
 	long int j;

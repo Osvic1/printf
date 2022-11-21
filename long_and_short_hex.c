@@ -36,7 +36,7 @@ int print_long_hexx(va_list args)
 }
 
 /**
- *print_short_unsigned_HEX - prints an unsigned hexadecimal
+ *print_short_hexx - prints an unsigned hexadecimal
  *@args: arguments
  *Return: count
  */

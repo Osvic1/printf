@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *print_long_number - prints a long integer
+ *print_long_num - prints a long integer
  *@args: arguments
  *Return: count
  */
@@ -33,7 +33,7 @@ int print_long_num(va_list args)
 	return (count);
 }
 /**
- *print_short_number - prints a short integer number using an array
+ *print_short_num - prints a short integer number using an array
  *@args: arguments
  *Return: count
  */
