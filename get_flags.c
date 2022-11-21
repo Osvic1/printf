@@ -18,6 +18,12 @@ int collect_flags(const char *str, int id)
 		{"o", print_octadex}, {"u", print_unsigned_intg},
 		{"x", print_hex}, {"X", print_hexx}, {"S", print_S},
 		{"p", print_address}, {"#o", print_hash_octal}, {"#x", print_hash_hex},
+		{"ld", print_long_num}, {"li", print_long_num},
+		{"hd", print_short_num}, {"hi", print_short_num},
+		{"lu", print_long_unsigned_intg}, {"lX", print_long_hexx},
+		{"hu", print_short_unsigned_intg}, {"hX", print_short_hexx},
+		{"lx", print_long_hex}, {"hx", print_short_hex},
+		{"lo", print_long_octal}, {"ho", print_short_octal},
 		{NULL, NULL}
 	};
 	int v = 0, j = 0;

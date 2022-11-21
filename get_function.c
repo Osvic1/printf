@@ -23,7 +23,14 @@ int (*collect_func(const char *str, int id))(va_list)
 		{"+ i", print_plus_sign}, {" d", print_space},
 		{" i", print_space}, {"#o", print_hash_octal},
 		{"#x", print_hash_hex}, {"#X", print_hash_HEX},
-		{"u", print_unsigned_intg}, {"S", print_S}, {NULL, NULL}
+		{"u", print_unsigned_intg}, {"S", print_S},
+		{"ld", print_long_num}, {"li", print_long_num},
+		{"hd", print_short_num}, {"hi", print_short_num},
+		{"lu", print_long_unsigned_intg}, {"lX", print_long_hexx},
+		{"hu", print_short_unsigned_intg}, {"hX", print_short_hexx},
+		{"lo", print_long_octal}, {"ho", print_short_octal},
+		{"lx", print_long_hex}, {"hx", print_short_hex},
+		{NULL, NULL}
 	};
 	int v = 0, j = 0;
 

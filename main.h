@@ -43,5 +43,15 @@ int print_space(va_list args);
 int print_hash_HEX(va_list args);
 int print_hash_octal(va_list args);
 int print_hash_hex(va_list args);
+int print_long_num(va_list args);
+int print_short_num(va_list args);
+int print_long_octal(va_list args);
+int print_short_octal(va_list args);
+int print_long_hexx(va_list args);
+int print_short_hexx(va_list args);
+int print_long_hex(va_list args);
+int print_short_hex(va_list args);
+int print_long_unsigned_intg(va_list args);
+int print_short_unsigned_intg(va_list args);
 
 #endif
