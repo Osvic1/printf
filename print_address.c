@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_addr - prints the address of a variable in hex
+ * print_address - prints the address of a variable in hex
  *@args: arguments
  *Return: count
  */
