@@ -20,7 +20,8 @@ int (*collect_func(const char *str, int id))(va_list)
 		{"p", print_address}, {"+ d", print_plus_sign},
 		{"+d", print_plus_sign}, {" +d", print_plus_sign},
 		{"+i", print_plus_sign}, {" +i", print_plus_sign},
-		{"+ i", print_plus_sign},
+		{"+ i", print_plus_sign}, {" d", print_spaci},
+		{" i", print_space},
 		{"u", print_unsigned_intg}, {"S", print_S}, {NULL, NULL}
 	};
 	int v = 0, j = 0;
