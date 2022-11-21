@@ -1,45 +1,25 @@
 #include "main.h"
-
 /**
-*print_S - prints hexa value of non printable xters
-*@args: arguments
-*
-*Return: count
-*/
-
-int print_S(va_list args)
+ * string_to_base - creating a buffer
+ *
+ * @num: number
+ * @base: 2, 8, 10, 16 depending of the type
+ * @uppercase: is hex to uppercase
+ * Return: Always 0
+ */
+char *string_to_base(unsigned long int num, int base, bool uppercase)
 {
+	static char *replace;
+	static char buffer[50];
+	char *ptr;
 
-int v, n = 0;
-char *str;
-char null[] = "(null)";
+	replace = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
+	ptr = &buffer[49];
+	*ptr = '\0';
+	do {
+		*--ptr = replace[num % base];
+		num /= base;
+	} while (num != 0);
 
-str = va_arg(args, char *);
-	if (str == NULL)
-	{
-		for (v = 0; null[v] != '\0'; v++)
-
-			_putchar(null[v]);
-
-		return (6);
-	}
-
-	for (v = 0; str[v] != '\0'; v++)
-
-	{
-		if (str[v] < 32 || str[v] >= 127)
-
-		{
-			_putchar(92);
-			_putchar('x');
-			print_HEX((long int)str[v], 2, 1);
-			n += 3;
-		}
-		else
-		{
-			_putchar(str[v]);
-		}
-	}
-
-	return (v + n);
+	return (ptr);
 }
