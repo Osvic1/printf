@@ -26,7 +26,7 @@ int print_S(va_list args)
 		{
 			_putchar(92);
 			_putchar('x');
-			print_HEX((long int)str[i], 2, 1);
+			print_hext((long int)str[i], 2, 1);
 			n += 3;
 		}
 		else
