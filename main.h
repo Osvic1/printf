@@ -39,5 +39,8 @@ int print_address(va_list args);
 int print_HEX(long int, unsigned int, unsigned int);
 int print_plus_sign(va_list args);
 int print_space(va_list args);
+int print_hash_HEX(va_list args);
+int print_hash_octal(va_list args);
+int print_hash_hex(va_list args);
 
 #endif
