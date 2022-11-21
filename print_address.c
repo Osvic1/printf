@@ -9,14 +9,14 @@ int print_address(va_list args)
 	int i, count;
 	void *str;
 	long int address;
-	char null[] = "(nil)";
+	char *n = "(nil)";
 
-	str = va_arg(args, void *);
+	str = va_arg(args, void*);
 	if (str == NULL)
 	{
-		for (i = 0; null[i] != '\0'; i++)
-			_putchar(null[i]);
-		return (5);
+		for (i = 0; n[i] != '\0'; i++)
+			_putchar(n[i]);
+		return (i);
 	}
 	address = (long int)str;
 	_putchar('0');
