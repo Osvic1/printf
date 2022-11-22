@@ -127,18 +127,18 @@ int handle_precision(va_list args, const char *modifier, char *index)
 	}
 	return (value);
 }
-
 /**
- *handle_specifiers - Matches a conversion specifier with
- *@specifier: A pointer to a potential conversion specifier.
- *Return: If a conversion function is matched - a pointer to the function.
+ *handle_specifiers - holds specifiers
+ *@int: m
+ *@char: ll
+ *Return: ni
+ *
  */
 unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 		unsigned char, int, int, unsigned char)
 {
 	int i;
-
-	converter_t converters[] = {
+		converter_t converters[] = {
 		{'c', convert_c}, {'s', convert_s},
 		{'d', convert_di}, {'i', convert_di},
 		{'%', convert_percent}, {'b', convert_b},
