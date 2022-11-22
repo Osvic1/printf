@@ -1,132 +1,96 @@
+/*
+ * File: _printf.c
+ * Auth: Festus Omaku Friday
+ *       Timothy Victor
+ */
+
 #include "main.h"
 
+void cleanup(va_list args, buffer_t *output);
+int run_printf(const char *format, va_list args, buffer_t *output);
+int _printf(const char *format, ...);
+
 /**
- * t_char - print a character
- *@va:character
- *
- * Return: no return
+ * cleanup - Peforms cleanup operations for _printf.
+ * @args: A va_list of arguments provided to _printf.
+ * @output: A buffer_t struct.
  */
-int t_char(va_list va)
+void cleanup(va_list args, buffer_t *output)
 {
-	int c;
-
-	c = va_arg(va, int);
-	_putchar(c);
-	return (1);
-}
-/**
- * t_string - print a string
- *@va: pointer to string
- *
- * Return: no return
- */
-int t_string(va_list va)
-{
-	int i, j;
-	char n[] = "(null)";
-	char *s = va_arg(va, char *);
-
-	if (s == NULL)
-	{
-		for (i = 0; n[i] != '\0'; i++)
-			_putchar(n[i]);
-		return (6);
-	}
-	for (j = 0; s[j] != '\0'; j++)
-		_putchar(s[j]);
-	return (j);
-}
-/**
- * print_number - Entry point
- *@va: the integer to print
- * Return: no return
- */
-int print_number(va_list va)
-{
-	int i, len, r, l;
-	unsigned int abs, num, numt;
-	int n = va_arg(va, int);
-
-	len = 0;
-	i = 0;
-	r = 1;
-	l = 1;
-	if (n < 0)
-	{
-		_putchar('-');
-		len++;
-		abs = -n;
-	} else
-	{
-		abs = n;
-	}
-
-	num = abs;
-	while (num > 0)
-	{
-		num /= 10;
-		i++;
-	}
-
-	while (r < i)
-	{
-		l *= 10;
-		r++;
-	}
-	while (l >= 1)
-	{
-		numt = (abs / l) % 10;
-		_putchar(numt + '0');
-		len++;
-		l /= 10;
-	}
-	return (len);
+	va_end(args);
+	write(1, output->start, output->len);
+	free_buffer(output);
 }
 
 /**
- * _printf - print output according to a format
- *@format: first argument
+ * run_printf - Reads through the format string for _printf.
+ * @format: Character string to print - may contain directives.
+ * @output: A buffer_t struct containing a buffer.
+ * @args: A va_list of arguments.
  *
- * Return: the number of characters printed(excluding the null byte)
+ * Return: The number of characters stored to output.
+ */
+int run_printf(const char *format, va_list args, buffer_t *output)
+{
+	int i, wid, prec, ret = 0;
+	char tmp;
+	unsigned char flags, len;
+	unsigned int (*f)(va_list, buffer_t *,
+			unsigned char, int, int, unsigned char);
+
+	for (i = 0; *(format + i); i++)
+	{
+		len = 0;
+		if (*(format + i) == '%')
+		{
+			tmp = 0;
+			flags = handle_flags(format + i + 1, &tmp);
+			wid = handle_width(args, format + i + tmp + 1, &tmp);
+			prec = handle_precision(args, format + i + tmp + 1,
+					&tmp);
+			len = handle_length(format + i + tmp + 1, &tmp);
+
+			f = handle_specifiers(format + i + tmp + 1);
+			if (f != NULL)
+			{
+				i += tmp + 1;
+				ret += f(args, output, flags, wid, prec, len);
+				continue;
+			}
+			else if (*(format + i + tmp + 1) == '\0')
+			{
+				ret = -1;
+				break;
+			}
+		}
+		ret += _memcpy(output, (format + i), 1);
+		i += (len != 0) ? 1 : 0;
+	}
+	cleanup(args, output);
+	return (ret);
+}
+
+/**
+ * _printf - Outputs a formatted string.
+ * @format: Character string to print - may contain directives.
+ *
+ * Return: The number of characters printed.
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j, len = 0, count;
-	va_list valist;
-	types difftypes[] = {{'c', t_char}, {'s', t_string}, {'d', print_number},
-			     {'i', print_number}, {'b', binary}, {'u', print_unsigned},
-			     {'x', hexa}, {'X', hexa_upper}, {'o', octal}, {'R', print_rot},
-			     {'r', print_rev}, {'S', stringhexa}, {'p', pointer}};
+	buffer_t *output;
+	va_list args;
+	int ret;
 
-	if (format == NULL || (format[0] == '%' && format[1] == 0))
+	if (format == NULL)
 		return (-1);
-	va_start(valist, format);
-	while (format != NULL && format[i])
-	{
-		if (format[i] != '%')
-			len += _putchar(format[i]);
-		else
-		{
-			i++;
-			if (format[i] == '%')
-				len += _putchar('%');
-			j = 0;
-			count = 0;
-			while (j < 13)
-			{
-				if (format[i] == difftypes[j].t)
-				{
-					len += difftypes[j].f(valist);
-					count = 1;
-					break; }
-				j++; }
-			if (!count && format[i] != '%')
-			{
-				len++;
-				len++;
-				_putchar('%');
-				_putchar(format[i]); }}
-		i++; }
-	va_end(valist);
-	return (len);
+	output = init_buffer();
+	if (output == NULL)
+		return (-1);
+
+	va_start(args, format);
+
+	ret = run_printf(format, args, output);
+
+	return (ret);
 }
